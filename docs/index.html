@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Probability Club</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- MathJax LaTeX Support -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+</head>
+<body>
+  <header>
+    <a href="https://LuoZzzzzz.github.io">LuoZzzzzz.github.io</a>
+  </header>
+
+  <main>
+    <h1>Problems</h1>
+    <p>
+      <b>Coin tossing 1.</b> 
+      What is the expected number of coin tosses before you land a. $HHH$, b. $HHT$, c. $HTH$, d. $THH$? 
+      The coin is fair.
+    </p>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Dice game 1.</b> 
+      A fair $n$ sided dice is tossed repeatedly until the sum of all the throws is at least $n$.
+      What is the expected number of tosses?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Define $f(n, k)$ as the expected number of throws to be at least $k$ for a $n$ sided die. 
+        Find an recursion involving $f(n, k)$ for $k \le n$.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$(\frac{n+1}{n})^{n-1}$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Jumping frog.</b> 
+      There is a frog at position $1000$ on the number line. 
+      Each time, the frog jumps to an integer between its current position and $1$. 
+      What is the expected number of jumps the frog takes to reach the origin?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Define $f(n)$ as the expected number of jumps if the frog is at position $n$.
+        Now set up a recursion involving $f(n)$.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$H(999) = \sum_{k=1}^{999} \frac{1}{k}$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Presents exchange.</b>
+      There are 8 people at a birthday, and each person brings a gift. 
+      How many ways are there for the 8 people to exchange gifts, such that everyone recieves one gift and no one recieves his own gift? 
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        There are $8!$ ways of exchanging gifts, but this include the cases where some people get their own gifts. 
+        Define $E_i$ as the event where the event where the $i^\mathrm{th}$ person recieves his own gift.
+        Then, we can use PIE to evaluate $|E_1 \cup \dots \cup E_8|$.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$14833$</p>
+    </details>
+
+  </main>
+</body>
+</html>
