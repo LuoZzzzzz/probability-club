@@ -228,7 +228,33 @@
       <p>$0.96309$</p>
     </details>
 
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
 
+    <p>
+      <b>Dice game $2$.</b> 
+      An unfair $6$ sided die is rolled until we observe all $6$ sides at least once each. 
+      $P(1) = P(2) = 1/4, P(3) = P(4) = P(5) = P(6) = 1/8$. What is the expected number of rolls?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Consider a fair $8$ sided die with sides $1_A, 1_B, 2_A, 2_B, 3, 4, 5, 6$. 
+        We can play same game with this dice and stop whenever one of each digit ($1_A$ and $1_B$ both count as $1$) has appeared.
+        Now, if we play a slightly different game where we want all $8$ faces to appear at least once, the expected number of tosses will be $8H(8)$.
+        However, there will be certain sequences in this game with redundant throws at the end compared to the original game.
+        For example, the sequence $1_A, 2_A, 3, 4, 5, 6, 1_B, 2_B$ has $\frac{8}{1} + \frac{8}{2} = 12$ expected redundant throws at the end.
+        The sequence $1_A, 2_A, 3, 4, 5, 1_B, 6, 2_B$ has $\frac{8}{1} = 8$ expected redundant throws in the end. 
+        Pay attention to the last two entries of the sequence - these entries determine the expected number of redundant throws for that sequence.
+        In total, there are $56$ possible terminating pairs. 
+        Of these, $8$ of them (ie. $(2_A, 1_B)$) have $12$ expected redundant throws.
+        $20$ of them (ie. $(2_A, 2_B)$, $(6, 1_B)$) have $8$ expected redundant throws. 
+        The expected number of redundant throws is therefore $\frac{8}{56} \times 12 + \frac{20}{56} \times 8$.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$8H(8) - \frac{8}{56} \times 12 - \frac{20}{56} \times 8 = \frac{601}{35}$</p>
+    </details>
 
   </main>
 </body>
