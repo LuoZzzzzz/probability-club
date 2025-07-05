@@ -94,6 +94,108 @@
       <p>$14833$</p>
     </details>
 
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Great expectations.</b> 
+      What is $\mathbb{E}[\operatorname{max}(X_1, \dots, X_N)]$ and $\mathbb{E}[\operatorname{min}(X_1, \dots, X_N)]$, where $X_i$ is sampled from $\operatorname{unif}[0, 1]$?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Draw out the sample space for $N=2$, and consider the set of points with the same $\operatorname{max}(X_1, X_2)$ / $\operatorname{min}(X_1, X_2)$.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$\frac{N}{N+1}$, $1-\frac{N}{N+1}$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Coin tossing 2.</b> 
+      Alice has $n+1$ coins and Bob has $n$ coins. 
+      If both of them toss their coins at the same time, what is the probability that Alice has more heads than Bob?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        In progress
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$\frac{1}{2}$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Combinatorics 1.</b> 
+      Prove that $\binom{n+1}{k} = \binom{n}{k} +  \binom{n}{k-1}$.
+    </p>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        We want to select $k$ people from a group of $n+1$ people that includes yourself.
+        If we exclude ourself from the group, then there are $\binom{n}{k}$ possible selections.
+        If we include ourself in the group, then there are $\binom{n}{k-1}$ possible selections.
+        These selections are mutually exclusive so their sum must equal $\binom{n+1}{k}$.
+      </p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Combinatorics 2.</b> 
+      Prove that $\sum_{k=0}^{n}\binom{n}{k}^2 = \binom{2n}{n}$. 
+    </p>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        We want to select $n$ people from a group of $2n$ people. 
+        There are $\binom{2n}{n}$ ways to do so.
+        Alternatively, we may split the $2n$ people into two groups of $n$ people each.
+        We select $k$ people from the first group, and $n-k$ people from the second group.
+        Hence, the total number of selections possible is: $\sum_{k=0}^{n} \binom{n}{k} \binom{n}{n-k}$.
+        But $\binom{n}{n-k} = \binom{n}{k}$ so this is just the above sum.
+      </p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Combinatorics 3.</b> 
+      What is $\sum_{k=1}^{n} \binom{n}{k} \binom{n}{k-1}$? 
+    </p>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        The same logic as combinatorics 2, but now you want to select $n+1$ people from a group of $2n$ people.
+      </p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Coin tossing 3.</b> 
+      Alice has $n+2$ coins and Bob has $n$ coins. 
+      If both of them toss their coins at the same time, what is the probability that Alice has more heads than Bob?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        In progress
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$\frac{1}{2} + (\frac{1}{2})^{2n+2} \binom{2n+1}{n+1}$ (check!)</p>
+    </details>
+
+
+
   </main>
 </body>
 </html>
