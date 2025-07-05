@@ -121,7 +121,10 @@
     <details>
       <summary>Hint</summary>
       <p>
-        In progress
+        Let Alice and Bob both toss $n$ coins. 
+        Define $p_A$ as the probability that alice has more heads than Bob, $p_B$ as the probability that Bob has more heads than Alice, and $p_D$ as the probability of a draw.
+        Now Alice tosses her final coin. 
+        What is the desired probability in terms of $p_A$, $p_B$ and $p_D$?
       </p>
     </details>
     <details>
@@ -186,12 +189,43 @@
     <details>
       <summary>Hint</summary>
       <p>
-        In progress
+        Let Alice and Bob both toss $n$ coins. 
+        Define $p_{A1}$ as the probability that Alice has exactly one more head than Bob, and $p_{B1}$ analogously.
+        Define $p_A$ as the probability that Alice has more than one head than Bob, and $p_B$ analogously.
+        Finally, define $p_D$ as the probability of a draw. 
+        What is the desired probability in terms of $p_A$, $p_{A1}$ and $p_D$?
+        What is $p_{A1}$ and $p_D$? 
+        The above combinatorial identities may be useful.
       </p>
     </details>
     <details>
       <summary>Solution</summary>
       <p>$\frac{1}{2} + (\frac{1}{2})^{2n+2} \binom{2n+1}{n+1}$ (check!)</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>No adjacent $1$s.</b> 
+      An integer is selected at random from the $0$ to $99999$. 
+      What is the probability that it has no adjacent $1$s?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Method 1: Define $E_i$ as the event where there is a pair of adjacent $1$s in which the first $1$ is at position $i$.
+        Calculate $|E_1 \cup E_2 \cup E_3 \cup E_4|$ using PIE.
+      </p>
+      <p>
+        Method 2: Consider the integers in the range $0$ to $10^n - 1$. 
+        Define $f(n, 0)$ as the number of integers that has no adjacent $1$s and whose last digit is not $1$. 
+        Define $f(n, 1)$ as the number of integers that has no adjacent $1$s and whose last digit is $1$. 
+        Set up a recursion involving $f(n, 0)$ and $f(n, 1)$.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$0.96309$</p>
     </details>
 
 
