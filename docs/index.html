@@ -28,7 +28,47 @@
   </header>
 
   <main>
-    <h1>Problems</h1>
+    <h1>Unsolved problems</h1>
+    <p>
+      <b>Dice game $3$.</b> 
+      Alice and Bob take turns throwing a single fair $6$ sided die.
+      The game ends when the sum of Alice's latest two throws is $8$, or when the sum of Bob's latest two throws is $7$. 
+      If Alice starts first, what is the probability that she wins?
+    </p>
+
+    <p>
+      <b>Dice game $4$.</b> 
+      A $4$ sided die is rolled repeatedly until the sum first exceeds $100$ (ie. becomes strictly greater). What is the expected value of the sum 
+      we stop at? Previously, we assumed that the sum is intially $0$. What if the sum started at $96$ instead? (Source: JS Glassdoor)
+    </p>
+
+    <p>
+      <b>Ball game $1$.</b> 
+      A bag contains three $+1$ dollar balls and two $-1$ dollar balls. You draw balls from the bag without replacement, and can stop 
+      at any point. What is the fair value of this game? (Source: JS Glassdoor)
+    </p>
+
+    <p>
+      <b>Ball game $2$.</b> 
+      There are $5$ bins and you have an infinite supply of balls. You throw balls towards the bins, which land randomly in any of the 
+      bins. Each time a ball lands in an empty bin you recieve a dollar, otherwise you lose a dollar. You can choose to stop playing at
+      any time. What will your strategy be, and what is its expected value? (Source: JS Glassdoor)
+    </p>
+
+    <p>
+      <b>Matching socks.</b> 
+      A magical drawer contains an infinite supply of red and blue socks in a $1:1$ ratio. What is the expected number of draws before 
+      you collect a pair of matching socks? 
+    </p>
+
+    <p>
+      <b>Dice game $5$.</b> 
+      You play a game where you roll a dice. After each roll, you can either choose to walk off with the current value of the dice (in dollars), or to
+      reroll the dice. You can reroll up to three times. What is the fair value of this game, and what is your strategy? Now, suppose each 
+      reroll costs $70$ cents. How will you play the game? (Source: JS Glassdoor)
+    </p>
+
+    <h1>Solved problems</h1>
     <p>
       <b>Coin tossing 1.</b> 
       What is the expected number of coin tosses before you land a. $HHH$, b. $HHT$, c. $HTH$, d. $THH$? 
@@ -254,6 +294,74 @@
     <details>
       <summary>Solution</summary>
       <p>$8H(8) - \frac{8}{56} \times 12 - \frac{20}{56} \times 8 = \frac{601}{35}$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Coin tossing $4$.</b> 
+      Alice and Bob each flip coins until they land $H$. Given that Bob flipped his coin more times than Alice, what is the expected number of times
+      Bob flipped his coin? (Source: JS Glassdoor)
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Write the conditional expectation as a sum.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$10/3$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Coin tossing $5$.</b> 
+      A coin is flipped repeatedly. If it lands heads, we add $2$ to our running sum, and if it lands tails we add $1$ to our running
+      sum. What is the probability that this sum is $100$ at some point in time? (Source: Squarepoint Glassdoor)
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Set up a recurrence.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$\approx 2/3$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Rock paper scissors.</b> 
+      You and your friend play rock paper scissors. You friend is esoteric and chooses to play only paper or scissors. What is your strategy? 
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Eliminate paper since it is dominated by another strategy. Then look for a mixed strategy on the reduced space.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>Play scissors $2/3$ of the time and paper $1/3$ of the time.</p>
+    </details>
+
+    <p>
+      <b>Auction $1$.</b> 
+      You and your friend play rock paper scissors. You friend is esoteric and chooses to play only paper or scissors. What is your strategy? 
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Eliminate paper since it is dominated by scissor. Then look for a mixed strategy on the reduced space.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>Play scissors $2/3$ of the time and paper $1/3$ of the time.</p>
     </details>
 
   </main>
