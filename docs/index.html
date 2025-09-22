@@ -474,6 +474,49 @@
       <p>$\int_0^\infty e^{-t} (\sum_{k=0}^{m-1} \frac{(t/6)^k}{k!})^6 \,\text{d}t$</p>
     </details>
 
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Ball game $?$.</b> 
+      A jar contains two $+1$ dollar balls and two $-1$ dollar balls. You get to draw as many balls without replacement as you wish from the jar, 
+      and you can stop drawing at any time. What is the fair value of the game? What if there are three $+1$ dollar balls and two $-1$ dollar balls?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        The optimal strategy is to keep drawing balls until the expected value of the draw becomes negative. Note that even if the expected value is 
+        zero, we should keep drawing, because the worst case is that we break even, and if we are lucky we will make some money.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$2/3$, $3/2$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Ball game $?$.</b> 
+      A jar contains $N$ $+1$ dollar balls and $N$ $-1$ dollar balls. Write a program to determine the fair value of the game for some given $N$. 
+      How does the fair value behave in the limit of large $N$?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Denote the payoff from the $N$ $+1$, $M$ $-1$ state as $f(N, M)$. This gives rise to the following recursion: 
+        $f(N, M) = \text{step}(N-M) \cdot [\frac{N}{N+M}(f(N-1, M) + 1) + \frac{M}{N+M}(f(N, M-1) - 1)]$, where $\text{step}(N-M) = 1$
+        if $N-M \ge 0$ and $0$ otherwise. The step function essentially tells us to stop playing when the expected payoff of the next
+        draw is negative. Since we stop playing, the expected return of whatever that follows is $0$.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        Dynamic programming tells us that the expected payoff is $N/N+1$. Notice that the expected payoff is always smaller than $1$.
+        Can you think of an intuitive explanation why?
+      </p>
+    </details>
+
 
   </main>
 
