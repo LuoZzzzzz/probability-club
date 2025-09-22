@@ -387,6 +387,95 @@
       <p>Bid $b = v^2/2$.</p>
     </details>
 
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Poisson thinning.</b> 
+      Consider the following process: you start by sampling $N \sim \text{Pois}(\lambda)$ balls. You then proceed to paint each of the $N$
+      balls one of $m$ colors, with probabilities $p_1, p_2, \dots, p_m$. If $N$ is fixed, the distributions of final colors will be multinomial.
+      However since $N$ is also a random variable, this is not the case. Show that the number of balls of color $i$, $N_i$, is distributed 
+      according to $\text{Pois}(\lambda p_i)$ and that $N_i$ and $N_j$ are independent if $i \ne j$.
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        For the first part, $\text{pr}(X_i=x_i) = \sum_0^\infty \text{pr}(N=k) \cdot \text{pr}(X_i=x_i | N=k)$.
+        For the second part, show that $\text{pr}(X_i=x_i, X_j=x_j) = \text{pr}(X_i=x_i) \cdot \text{pr}(X_j=x_j)$.
+      </p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Expectation by integrating the survival function.</b> 
+      Let $f(x)$ be the probability density of a strictly positive random variable $X$. 
+      Show that $\mathbb{E}[X] = \int_0^\infty 1-F(x) \,\text{d}x$ where $F(x)$ is the CDF of $X$.
+    </p>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Poissonisation $1$.</b> 
+      You are an avid collector of balls. Balls come in one of $m$ colors, and each time you draw a ball it has an equal probability of being
+      any one of the colors. If you collect $N$ balls, approximate the probability that you end up with at least one ball of each color.
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Instead of drawing a fixed number of balls, suppose we draw $N \sim \text{Pois}(N)$ balls. Then the number of balls of each color, $N_i$
+        is distributed according to $\text{Pois}(N/m)$. Furthermore, $N_i$s are independent for different $i$s. For us to end up with a full set 
+        of balls, $N_i$ must be greater than $0$ for all $i$. What is the probability of that?
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$(1-e^{N/m})^m$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Poissonisation $2$.</b> 
+      What is the expected number of rolls of a fair six sided die before seeing each face at least twice? Find an approximate solution.
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        We can reframe the original problem as: given that we roll a fair dice once every second, what is the expected time before we see 
+        each face of the dice at least twice? Now, we Poissonise. Instead of rolling the dice every second, we roll it with exponential time 
+        spacing. That is, the time between two consecutive dice rolls is distributed according to $\text{Exp}(1)$. Then, the total number of rolls
+        in time $t$ is $T \sim \text{Pois}(t)$. Under this process, the number of times face $i$ appears, $N_i$ is distributed according to 
+        $\text{Pois}(t/6)$. The probability (not density) of success after time $t$ is therefore equal to $[1-e^{-t/6}(1+t/6)]^6$. Finally, Calculate
+        $\mathbb{E}[t]$ by integrating the survival function. 
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$\int_0^\infty 1 - [1-e^{-t/6}(1+t/6)]^6 \,\text{d}t$</p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Poissonisation $3$.</b> 
+      What is the expected number of rolls of a fair six sided die before seeing some face $m$ times? Find an approximate solution.
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Again, we Poissonise the dice rolling process so that $N \sim \text{Pois}(t)$ and $N_i \sim \text{Pois}(t/6)$. We would like to
+        calculate $\mathbb{E}[t]$ by integrating the survival function. In this case, it is easy to calculate the survival function directly.
+        The probability of seeing face $i$ less than $m$ times is $\sum_{k=0}^{m-1} e^{-t/6} \frac{(t/6)^k}{k!}$, and since $N_i$s are independent
+        the probability that all of them show up less than $m$ times (ie. survival probability) is $e^{-t} (\sum_{k=0}^{m-1} \frac{(t/6)^k}{k!})^6$.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>$\int_0^\infty e^{-t} (\sum_{k=0}^{m-1} \frac{(t/6)^k}{k!})^6 \,\text{d}t$</p>
+    </details>
+
+
   </main>
+
 </body>
 </html>
