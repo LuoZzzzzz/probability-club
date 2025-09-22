@@ -503,17 +503,34 @@
     <details>
       <summary>Hint</summary>
       <p>
+        <b>Wrong recursion formula, ignore.</b>
         Denote the payoff from the $N$ $+1$, $M$ $-1$ state as $f(N, M)$. This gives rise to the following recursion: 
         $f(N, M) = \text{step}(N-M) \cdot [\frac{N}{N+M}(f(N-1, M) + 1) + \frac{M}{N+M}(f(N, M-1) - 1)]$, where $\text{step}(N-M) = 1$
         if $N-M \ge 0$ and $0$ otherwise. The step function essentially tells us to stop playing when the expected payoff of the next
         draw is negative. Since we stop playing, the expected return of whatever that follows is $0$.
       </p>
+
+      <p>
+        The correct recursion is:
+        $f(N, M) = \text{max} [0, \frac{N}{N+M}(f(N-1, M) + 1) + \frac{M}{N+M}(f(N, M-1) - 1)]$. Even if $M \gt N$, if 
+        both $M$ and $N$ are large then it may still be profitable to keep playing. This is intuitive: a game with $N=100, M=101$ should have 
+        similar payoff as a game with $N=100, M=100$, and we expect the latter to have a reasonably large payoff since there are many places we can 
+        stop.
+      </p>
     </details>
     <details>
       <summary>Solution</summary>
       <p>
+        <b>Wrong solution.</b>
         Dynamic programming tells us that the expected payoff is $N/N+1$. Notice that the expected payoff is always smaller than $1$.
-        Can you think of an intuitive explanation why?
+      </p>
+
+      <p>
+        <b>Corrected solution.</b>
+        The expected payoff grows proportional to $\sqrt{N}$, with a proportionality constant of approximately $0.52$. This is somewhat intuitive:
+        the standard deviation of a random walk is proportional to $\sqrt{N}$, and we may think of our ball drawing process as a random walk
+        with changing left-right probabilities (ie. if we are at a very positive position, we tend to want to walk back to the orgin) that we stop 
+        when our current position is relatively positive. 
       </p>
     </details>
 
