@@ -43,12 +43,6 @@
     </p>
 
     <p>
-      <b>Ball game $1$.</b> 
-      A bag contains three $+1$ dollar balls and two $-1$ dollar balls. You draw balls from the bag without replacement, and can stop 
-      at any point. What is the fair value of this game? (Source: JS Glassdoor)
-    </p>
-
-    <p>
       <b>Ball game $2$.</b> 
       There are $5$ bins and you have an infinite supply of balls. You throw balls towards the bins, which land randomly in any of the 
       bins. Each time a ball lands in an empty bin you recieve a dollar, otherwise you lose a dollar. You can choose to stop playing at
@@ -534,6 +528,56 @@
       </p>
     </details>
 
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Dice game $?$.</b> 
+      You roll a fair dice repeatedly until you land the sequence $456$. Let the number of rolls be $N$. Find
+      $\text{pr}(N=n)$ (a recursion is enough).
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Let's try forming a recursion for $\text{pr}(N=n)$. Denote the survival function $S(n) = \text{pr}(N>n)$.
+        Then, we have that $\text{pr}(N=n) = S(n)-S(n-1)$. We also have $\text{pr}(N=n) = S(n-3)/216$. This may
+        look wrong, since we could have a $4$ rolled on roll $n-3$ and therefore it is possible to finish in just
+        two more rolls on roll $n-1$. Note, however, that that contributes to $\text{pr}(N=n-1)$, not $\text{pr}(N=n)$!
+        So we must have $4, 5, 6$ on rolls $n-2, n-1, n$. Now, we shift the indices, getting 
+        $\text{pr}(N=n-3) = S(n-4)-S(n-3)$, and $\text{pr}(N=n-1) = S(n-4)/216$. Plugging everything in gives us <thead>
+        desired recursion. Now, we need to generate base cases. By counting sequences, we find that
+        $\text{pr}(N=3) = \text{pr}(N=4) = \text{pr}(N=5) = 1/216$. Using these we can compute $\text{pr}(N=6)$ and so on.
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        $\text{pr}(N=n) = \text{pr}(N=n-1) - \frac{1}{216} \cdot \text{pr}(N=n-3)$
+      </p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Dice game $?$.</b> 
+      You roll a fair dice repeatedly until you land the sequence $456$. Let the number of rolls be $N$.
+      What is the probability that $N$ is odd? How will this probability change if the sequence was $455$? Try
+      answering this without any calculations.
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        The nicest approach is to use a Markov chain. The states of the chain are $S_0$ (start), $S_1=4$, $S_2=45$ and 
+        $S_3=456$ (absorbing). Let $f_i$ denote the probability that the (additional) number of throws is odd, 
+        given that we start from the state $S_i$. Then, $f_i = \sum_j p_{i \rightarrow j} \cdot \text{pr(no. of remaining throws is even|start from j)} = 
+        \sum_j p_{i \rightarrow j} \cdot (1-f_j)$. Also, $f_3 = 0$, since $0$ is even. Solve for $f_0$. 
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        $456$: $216/431$, $455$: $222/443$
+      </p>
+    </details>
 
   </main>
 
