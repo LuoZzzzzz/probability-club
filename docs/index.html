@@ -30,36 +30,7 @@
   <main>
     <h1>Unsolved problems</h1>
     <p>
-      <b>Dice game $3$.</b> 
-      Alice and Bob take turns throwing a single fair $6$ sided die.
-      The game ends when the sum of Alice's latest two throws is $8$, or when the sum of Bob's latest two throws is $7$. 
-      If Alice starts first, what is the probability that she wins?
-    </p>
-
-    <p>
-      <b>Dice game $4$.</b> 
-      A $4$ sided die is rolled repeatedly until the sum first exceeds $100$ (ie. becomes strictly greater). What is the expected value of the sum 
-      we stop at? Previously, we assumed that the sum is intially $0$. What if the sum started at $96$ instead? (Source: JS Glassdoor)
-    </p>
-
-    <p>
-      <b>Ball game $2$.</b> 
-      There are $5$ bins and you have an infinite supply of balls. You throw balls towards the bins, which land randomly in any of the 
-      bins. Each time a ball lands in an empty bin you recieve a dollar, otherwise you lose a dollar. You can choose to stop playing at
-      any time. What will your strategy be, and what is its expected value? (Source: JS Glassdoor)
-    </p>
-
-    <p>
-      <b>Matching socks.</b> 
-      A magical drawer contains an infinite supply of red and blue socks in a $1:1$ ratio. What is the expected number of draws before 
-      you collect a pair of matching socks? 
-    </p>
-
-    <p>
-      <b>Dice game $5$.</b> 
-      You play a game where you roll a dice. After each roll, you can either choose to walk off with the current value of the dice (in dollars), or to
-      reroll the dice. You can reroll up to three times. What is the fair value of this game, and what is your strategy? Now, suppose each 
-      reroll costs $70$ cents. How will you play the game? (Source: JS Glassdoor)
+      There are none because I solved all of them muahaha.
     </p>
 
     <h1>Solved problems</h1>
@@ -131,7 +102,7 @@
     <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
 
     <p>
-      <b>Great expectations.</b> 
+      <b>Expectations.</b> 
       What is $\mathbb{E}[\operatorname{max}(X_1, \dots, X_N)]$ and $\mathbb{E}[\operatorname{min}(X_1, \dots, X_N)]$, where $X_i$ is sampled from $\operatorname{unif}[0, 1]$?
     </p>
     <details>
@@ -576,6 +547,94 @@
       <summary>Solution</summary>
       <p>
         $456$: $216/431$, $455$: $222/443$
+      </p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Dice game $?$.</b> 
+      You roll a fair $3$ sided die repeatedly, accumulating the sum of the faces. What is the probability that
+      the sum is ever equal to some arbitrary integer $n$ at some point in time? Find an analytic formula (this
+      is a repeat of a previous problem but more general).
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        Like before, set up a recursion for $p_n$, and try a trial solution $x^n$. The resulting polynomial is 
+        fourth order with a double root at $x=1$. The remaining roots are 
+        $\frac{1}{\sqrt{3}}e^{i(\pi-\text{tan}^{-1})\sqrt{2}}$ and
+        $\frac{1}{\sqrt{3}}e^{-i(\pi-\text{tan}^{-1})\sqrt{2}}$. We should not discard these roots because they are
+        complex - in fact, they form the decaying part of the recursion. To find the arbitrary constants, use the 
+        boundary conditions $p_0 = 0$ (your sum always starts at $0$) and $p_\infty = 1/[(1+2+3)/3]$. 
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        $p_n = \frac{1}{2} + \frac{1}{2} (-\frac{1}{\sqrt{3}})^n \cdot \text{cos} (n \cdot \text{tan}^{-1}\sqrt{2})$
+      </p>
+    </details>
+    
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Ball game $?$.</b> 
+      There are $5$ bins and you have an infinite supply of balls. You throw balls towards the bins, which land randomly in any of the 
+      bins. Each time a ball lands in an empty bin you recieve a dollar, otherwise you lose a dollar. You can choose to stop playing at
+      any time. What will your strategy be, and what is its expected value?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        :3
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        ???
+      </p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Dice game $?$.</b> 
+      You play a game where you roll a dice. After each roll, you can either choose to walk off with the current value of the dice (in dollars), or to
+      reroll the dice. You can reroll up to three times. What is the fair value of this game, and what is your strategy? Now, suppose each 
+      reroll costs $70$ cents. How will you play the game?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        ???
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        ???
+      </p>
+    </details>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+    <p>
+      <b>Expectation of median.</b> 
+      $5$ numbers are drawn at random from the distribution $f(x)$ defined on the interval $[a, b]$.
+      What is the expected value of the median number?
+    </p>
+    <details>
+      <summary>Hint</summary>
+      <p>
+        ???
+      </p>
+    </details>
+    <details>
+      <summary>Solution</summary>
+      <p>
+        ???
       </p>
     </details>
 
