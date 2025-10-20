@@ -587,13 +587,14 @@
     <details>
       <summary>Hint</summary>
       <p>
-        :3
+        There are two approaches. Either use a Markov chain, or sum the expected returns in going from 
+        $5$ to $4$, $4$ to $3$ and $3$ to $2$ balls.
       </p>
     </details>
     <details>
       <summary>Solution</summary>
       <p>
-        ???
+        $25/12$
       </p>
     </details>
 
@@ -608,13 +609,14 @@
     <details>
       <summary>Hint</summary>
       <p>
-        ???
+        This can be solved easily using backward induction. 
+        The first part is classic problem from green book and the second part is a slightly modified version.
       </p>
     </details>
     <details>
       <summary>Solution</summary>
       <p>
-        ???
+        a. $14/3$, b. around $4.1$
       </p>
     </details>
 
@@ -622,19 +624,31 @@
 
     <p>
       <b>Expectation of median.</b> 
-      $5$ numbers are drawn at random from the distribution $f(x)$ defined on the interval $[a, b]$.
+      $5$ numbers are drawn at random from the distribution $f(x)$.
       What is the expected value of the median number?
     </p>
     <details>
       <summary>Hint</summary>
       <p>
-        ???
+        This is order statistics.
+        Suppose we draw $N$ iid numbers $x_1, ..., x_N$ from the distribution $f(x)$. 
+        Now, we order them in ascending order. What is the expected value of the value in position $k$?
       </p>
-    </details>
-    <details>
-      <summary>Solution</summary>
       <p>
-        ???
+        Think about the following quantity:
+        $$\text{pr}(\text{number in position } k \text{ is in interval } [x, x+\text{d}x])$$
+      </p>
+      <p>
+        Let's say we sample the $N$ numbers sequentially, so that each of the numbers are indexed by order. To get the above probability, we can assign any of the $N$ numbers to the position $k$ in the ordered vector. Then, we need to pick $k-1$ of the remaining numbers from $N-1$ remaining numbers to put before the position $k$, and then the remaining $N-k-1$ numbers go after the position $k$. Now, for any one of these assignments the corresponding probability is:
+        $$\text{pr}(\text{assignment}) = f(x)\text{d}x \cdot F(x)^{k-1} (1-F(x))^{N-k}$$
+      </p>
+      <p>
+        Since there are $N \cdot \binom{N-1}{k-1} = \frac{N!}{(k-1)! (N-k-1)!}$ such arrangements the probability is:
+        $$\frac{N!}{(k-1)! (N-k-1)!} \cdot f(x)\text{d}x \cdot F(x)^{k-1} (1-F(x))^{N-k}$$
+      </p>
+      <p>
+        Hence:
+        $$p_{x_k}(x) = \frac{N!}{(k-1)! (N-k-1)!} \cdot f(x)\text{d}x \cdot F(x)^{k-1} (1-F(x))^{N-k}$$
       </p>
     </details>
 
