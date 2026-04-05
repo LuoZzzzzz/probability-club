@@ -1,5 +1,7 @@
 /* styles.css */
 
+/* @import url('https://fonts.googleapis.com/css2?family=Computer+Modern+Serif&display=swap'); */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
@@ -8,6 +10,14 @@ body {
   color: #24292f;
   line-height: 1.6;
 }
+
+/* body {
+  margin: 0;
+  font-family: 'Computer Modern Serif', serif;
+  background-color: #f6f8fa;
+  color: #24292f;
+  line-height: 1.6;
+} */
 
 header {
   background-color: #24292f;
@@ -64,4 +74,22 @@ a:hover {
 
 p {
   text-align: justify;
+}
+
+/* Fix MathJax display equations causing excess blank space */
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+mjx-container[display="true"] > svg,
+mjx-container[display="true"] > mjx-math {
+  max-width: 100%;
+}
+
+.MathJax_Display,
+mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
 }

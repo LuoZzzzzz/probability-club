@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wald's Equality</title>
+
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- MathJax LaTeX Support -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        tags: 'all'  // Enable automatic equation numbering
+      }
+    };
+  </script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+</head>
+<body>
+  <header>
+    Wald's Equality
+  </header>
+
+  <main>
+    <nav class="page-nav">
+      <a href="index.html" class="btn">Index</a>
+    </nav>
+
+    <h1>Walds equality</h1>
+    <p>
+      Consider a process that generates a sequence of independently and identically distributed (iid) outcomes, $X_1, X_2, ...$. This process stops whenever some condition is satisfied. The time step at which the process stops, $N$, is therefore also a random variable.
+    </p>
+
+    <p>
+      In other words, every realisation of the sequence $X_1, X_2, ...$ is associated with a value of $N$, $n$, called the stopping time. For $N$ to be a stopping rule, the value of $n$ must be determined entirely by the sequence ${x_1, ..., x_n}$ and nothing beyond. That is, if I asked you why you stopped at time step $n$, your explanation must be solely based on ${x_1, ..., x_n}$, not anything after.
+    </p>
+
+    <p>
+      Wald's equation tells us that if $N$ is a stopping time, then:
+      $$\mathbb{E}_\text{all paths}[\sum_{i=1}^N{X_i}] = \mathbb{E}_\text{all paths}[N] \cdot \mathbb{E}[X]$$
+      Let us verify this using a dice game. Consider the following games:
+    </p>
+
+    <ol>
+      <li>I throw a fair $n$ sided die repeatedly until the next throw is less than or equal to the previous throw. I then sum all of the rolls in the <b>ascending sequence</b> of throws. For example, if the sequence was $1, 2, 5, 3$, then the sum is $1+2+5=8$. What is the expected sum?</li>
+      <li>I throw a fair $n$ sided die repeatedly until the next throw is less than or equal to the previous throw. I then sum <b>all of the rolls</b>. For example, if the sequence was $1, 2, 5, 3$, then the sum is $1+2+5+3=11$. What is the expected sum?</li>
+    </ol>
+
+    <p>
+      The difference between these these examples is that the former is not a stopping rule, because the sum runs from $1$ to $n-1$, and the decision to stop the sum at $n-1$ depended on the outcome of the dice roll at step $n$. On the other hand, the latter is a stopping rule, since our sum also includes the ($n^\text{th}$) roll that caused us to stop.
+    </p>
+
+    <p>
+      We can verify that Wald's equation holds for the latter and not the former by computing the expectations for the two cases using recursion, and then comparing the answer to that given by Wald's equation.
+    </p>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>2025 Problems</title>
+
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- MathJax LaTeX Support -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        tags: 'all'  // Enable automatic equation numbering
+      }
+    };
+  </script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+</head>
+<body>
+  <header>
+    2025 Problems
+  </header>
+
+  <main>
+    <nav class="page-nav">
+      <a href="index.html" class="btn">Index</a>
+    </nav>
+
+  <h2>Problems from 2025</h2>
+  <p>
+    <b>Coin tossing 1.</b>
+    What is the expected number of coin tosses before you land a. $HHH$, b. $HHT$, c. $HTH$, d. $THH$?
+    The coin is fair.
+  </p>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Dice game 1.</b> 
+    A fair $n$ sided dice is tossed repeatedly until the sum of all the throws is at least $n$.
+    What is the expected number of tosses?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Define $f(n, k)$ as the expected number of throws to be at least $k$ for a $n$ sided die. 
+      Find an recursion involving $f(n, k)$ for $k \le n$.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$(\frac{n+1}{n})^{n-1}$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Jumping frog.</b> 
+    There is a frog at position $1000$ on the number line. 
+    Each time, the frog jumps to an integer between its current position and $1$. 
+    What is the expected number of jumps the frog takes to reach the origin?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Define $f(n)$ as the expected number of jumps if the frog is at position $n$.
+      Now set up a recursion involving $f(n)$.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$H(999) = \sum_{k=1}^{999} \frac{1}{k}$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Presents exchange.</b>
+    There are 8 people at a birthday, and each person brings a gift. 
+    How many ways are there for the 8 people to exchange gifts, such that everyone recieves one gift and no one recieves his own gift? 
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      There are $8!$ ways of exchanging gifts, but this include the cases where some people get their own gifts. 
+      Define $E_i$ as the event where the event where the $i^\mathrm{th}$ person recieves his own gift.
+      Then, we can use PIE to evaluate $|E_1 \cup \dots \cup E_8|$.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$14833$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Expectations.</b> 
+    What is $\mathbb{E}[\operatorname{max}(X_1, \dots, X_N)]$ and $\mathbb{E}[\operatorname{min}(X_1, \dots, X_N)]$, where $X_i$ is sampled from $\operatorname{unif}[0, 1]$?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Draw out the sample space for $N=2$, and consider the set of points with the same $\operatorname{max}(X_1, X_2)$ / $\operatorname{min}(X_1, X_2)$.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$\frac{N}{N+1}$, $1-\frac{N}{N+1}$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Coin tossing 2.</b> 
+    Alice has $n+1$ coins and Bob has $n$ coins. 
+    If both of them toss their coins at the same time, what is the probability that Alice has more heads than Bob?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Let Alice and Bob both toss $n$ coins. 
+      Define $p_A$ as the probability that alice has more heads than Bob, $p_B$ as the probability that Bob has more heads than Alice, and $p_D$ as the probability of a draw.
+      Now Alice tosses her final coin. 
+      What is the desired probability in terms of $p_A$, $p_B$ and $p_D$?
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$\frac{1}{2}$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Combinatorics 1.</b> 
+    Prove that $\binom{n+1}{k} = \binom{n}{k} +  \binom{n}{k-1}$.
+  </p>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      We want to select $k$ people from a group of $n+1$ people that includes yourself.
+      If we exclude ourself from the group, then there are $\binom{n}{k}$ possible selections.
+      If we include ourself in the group, then there are $\binom{n}{k-1}$ possible selections.
+      These selections are mutually exclusive so their sum must equal $\binom{n+1}{k}$.
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Combinatorics 2.</b> 
+    Prove that $\sum_{k=0}^{n}\binom{n}{k}^2 = \binom{2n}{n}$. 
+  </p>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      We want to select $n$ people from a group of $2n$ people. 
+      There are $\binom{2n}{n}$ ways to do so.
+      Alternatively, we may split the $2n$ people into two groups of $n$ people each.
+      We select $k$ people from the first group, and $n-k$ people from the second group.
+      Hence, the total number of selections possible is: $\sum_{k=0}^{n} \binom{n}{k} \binom{n}{n-k}$.
+      But $\binom{n}{n-k} = \binom{n}{k}$ so this is just the above sum.
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Combinatorics 3.</b> 
+    What is $\sum_{k=1}^{n} \binom{n}{k} \binom{n}{k-1}$? 
+  </p>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      The same logic as combinatorics 2, but now you want to select $n+1$ people from a group of $2n$ people.
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Coin tossing 3.</b> 
+    Alice has $n+2$ coins and Bob has $n$ coins. 
+    If both of them toss their coins at the same time, what is the probability that Alice has more heads than Bob?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Let Alice and Bob both toss $n$ coins. 
+      Define $p_{A1}$ as the probability that Alice has exactly one more head than Bob, and $p_{B1}$ analogously.
+      Define $p_A$ as the probability that Alice has more than one head than Bob, and $p_B$ analogously.
+      Finally, define $p_D$ as the probability of a draw. 
+      What is the desired probability in terms of $p_A$, $p_{A1}$ and $p_D$?
+      What is $p_{A1}$ and $p_D$? 
+      The above combinatorial identities may be useful.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$\frac{1}{2} + (\frac{1}{2})^{2n+2} \binom{2n+1}{n+1}$ (check!)</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>No adjacent $1$s.</b> 
+    An integer is selected at random from the $0$ to $99999$. 
+    What is the probability that it has no adjacent $1$s?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Method 1: Define $E_i$ as the event where there is a pair of adjacent $1$s in which the first $1$ is at position $i$.
+      Calculate $|E_1 \cup E_2 \cup E_3 \cup E_4|$ using PIE.
+    </p>
+    <p>
+      Method 2: Consider the integers in the range $0$ to $10^n - 1$. 
+      Define $f(n, 0)$ as the number of integers that has no adjacent $1$s and whose last digit is not $1$. 
+      Define $f(n, 1)$ as the number of integers that has no adjacent $1$s and whose last digit is $1$. 
+      Set up a recursion involving $f(n, 0)$ and $f(n, 1)$.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$0.96309$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Dice game $2$.</b> 
+    An unfair $6$ sided die is rolled until we observe all $6$ sides at least once each. 
+    $P(1) = P(2) = 1/4, P(3) = P(4) = P(5) = P(6) = 1/8$. What is the expected number of rolls?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Consider a fair $8$ sided die with sides $1_A, 1_B, 2_A, 2_B, 3, 4, 5, 6$. 
+      We can play same game with this dice and stop whenever one of each digit ($1_A$ and $1_B$ both count as $1$) has appeared.
+      Now, if we play a slightly different game where we want all $8$ faces to appear at least once, the expected number of tosses will be $8H(8)$.
+      However, there will be certain sequences in this game with redundant throws at the end compared to the original game.
+      For example, the sequence $1_A, 2_A, 3, 4, 5, 6, 1_B, 2_B$ has $\frac{8}{1} + \frac{8}{2} = 12$ expected redundant throws at the end.
+      The sequence $1_A, 2_A, 3, 4, 5, 1_B, 6, 2_B$ has $\frac{8}{1} = 8$ expected redundant throws in the end. 
+      Pay attention to the last two entries of the sequence - these entries determine the expected number of redundant throws for that sequence.
+      In total, there are $56$ possible terminating pairs. 
+      Of these, $8$ of them (ie. $(2_A, 1_B)$) have $12$ expected redundant throws.
+      $20$ of them (ie. $(2_A, 2_B)$, $(6, 1_B)$) have $8$ expected redundant throws. 
+      The expected number of redundant throws is therefore $\frac{8}{56} \times 12 + \frac{20}{56} \times 8$.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$8H(8) - \frac{8}{56} \times 12 - \frac{20}{56} \times 8 = \frac{601}{35}$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Coin tossing $4$.</b> 
+    Alice and Bob each flip coins until they land $H$. Given that Bob flipped his coin more times than Alice, what is the expected number of times
+    Bob flipped his coin? (Source: JS Glassdoor)
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Write the conditional expectation as a sum.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$10/3$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Coin tossing $5$.</b> 
+    A coin is flipped repeatedly. If it lands heads, we add $2$ to our running sum, and if it lands tails we add $1$ to our running
+    sum. What is the probability that this sum is $100$ at some point in time? (Source: Squarepoint Glassdoor)
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Set up a recurrence.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$\approx 2/3$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Ball game $1$.</b> 
+    A jar contains two $+1$ dollar balls and two $-1$ dollar balls. You get to draw as many balls without replacement as you wish from the jar, 
+    and you can stop drawing at any time. What is the fair value of the game? What if there are three $+1$ dollar balls and two $-1$ dollar balls?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      The optimal strategy is to keep drawing balls until the expected value of the draw becomes negative. Note that even if the expected value is 
+      zero, we should keep drawing, because the worst case is that we break even, and if we are lucky we will make some money.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>$2/3$, $3/2$</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Ball game $2$.</b> 
+    A jar contains $N$ $+1$ dollar balls and $N$ $-1$ dollar balls. Write a program to determine the fair value of the game for some given $N$. 
+    How does the fair value behave in the limit of large $N$?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      <b>Wrong recursion formula, ignore.</b>
+      Denote the payoff from the $N$ $+1$, $M$ $-1$ state as $f(N, M)$. This gives rise to the following recursion: 
+      $f(N, M) = \text{step}(N-M) \cdot [\frac{N}{N+M}(f(N-1, M) + 1) + \frac{M}{N+M}(f(N, M-1) - 1)]$, where $\text{step}(N-M) = 1$
+      if $N-M \ge 0$ and $0$ otherwise. The step function essentially tells us to stop playing when the expected payoff of the next
+      draw is negative. Since we stop playing, the expected return of whatever that follows is $0$.
+    </p>
+
+    <p>
+      The correct recursion is:
+      $f(N, M) = \text{max} [0, \frac{N}{N+M}(f(N-1, M) + 1) + \frac{M}{N+M}(f(N, M-1) - 1)]$. Even if $M \gt N$, if 
+      both $M$ and $N$ are large then it may still be profitable to keep playing. This is intuitive: a game with $N=100, M=101$ should have 
+      similar payoff as a game with $N=100, M=100$, and we expect the latter to have a reasonably large payoff since there are many places we can 
+      stop.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      <b>Wrong solution.</b>
+      Dynamic programming tells us that the expected payoff is $N/N+1$. Notice that the expected payoff is always smaller than $1$.
+    </p>
+
+    <p>
+      <b>Corrected solution.</b>
+      The expected payoff grows proportional to $\sqrt{N}$, with a proportionality constant of approximately $0.52$. This is somewhat intuitive:
+      the standard deviation of a random walk is proportional to $\sqrt{N}$, and we may think of our ball drawing process as a random walk
+      with changing left-right probabilities (ie. if we are at a very positive position, we tend to want to walk back to the orgin) that we stop 
+      when our current position is relatively positive. 
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Dice game $3$.</b> 
+    You roll a fair dice repeatedly until you land the sequence $456$. Let the number of rolls be $N$. Find
+    $\text{pr}(N=n)$ (a recursion is enough).
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Let's try forming a recursion for $\text{pr}(N=n)$. Denote the survival function $S(n) = \text{pr}(N>n)$.
+      Then, we have that $\text{pr}(N=n) = S(n)-S(n-1)$. We also have $\text{pr}(N=n) = S(n-3)/216$. This may
+      look wrong, since we could have a $4$ rolled on roll $n-3$ and therefore it is possible to finish in just
+      two more rolls on roll $n-1$. Note, however, that that contributes to $\text{pr}(N=n-1)$, not $\text{pr}(N=n)$!
+      So we must have $4, 5, 6$ on rolls $n-2, n-1, n$. Now, we shift the indices, getting 
+      $\text{pr}(N=n-3) = S(n-4)-S(n-3)$, and $\text{pr}(N=n-1) = S(n-4)/216$. Plugging everything in gives us <thead>
+      desired recursion. Now, we need to generate base cases. By counting sequences, we find that
+      $\text{pr}(N=3) = \text{pr}(N=4) = \text{pr}(N=5) = 1/216$. Using these we can compute $\text{pr}(N=6)$ and so on.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      $\text{pr}(N=n) = \text{pr}(N=n-1) - \frac{1}{216} \cdot \text{pr}(N=n-3)$
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Dice game $4$.</b> 
+    You roll a fair dice repeatedly until you land the sequence $456$. Let the number of rolls be $N$.
+    What is the probability that $N$ is odd? How will this probability change if the sequence was $455$? Try
+    answering this without any calculations.
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      The nicest approach is to use a Markov chain. The states of the chain are $S_0$ (start), $S_1=4$, $S_2=45$ and 
+      $S_3=456$ (absorbing). Let $f_i$ denote the probability that the (additional) number of throws is odd, 
+      given that we start from the state $S_i$. Then, $f_i = \sum_j p_{i \rightarrow j} \cdot \text{pr(no. of remaining throws is even|start from j)} = 
+      \sum_j p_{i \rightarrow j} \cdot (1-f_j)$. Also, $f_3 = 0$, since $0$ is even. Solve for $f_0$. 
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      $456$: $216/431$, $455$: $222/443$
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Dice game $5$.</b> 
+    You roll a fair $3$ sided die repeatedly, accumulating the sum of the faces. What is the probability that
+    the sum is ever equal to some arbitrary integer $n$ at some point in time? Find an analytic formula (this
+    is a repeat of a previous problem but more general).
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Like before, set up a recursion for $p_n$, and try a trial solution $x^n$. The resulting polynomial is 
+      fourth order with a double root at $x=1$. The remaining roots are 
+      $\frac{1}{\sqrt{3}}e^{i(\pi-\text{tan}^{-1})\sqrt{2}}$ and
+      $\frac{1}{\sqrt{3}}e^{-i(\pi-\text{tan}^{-1})\sqrt{2}}$. We should not discard these roots because they are
+      complex - in fact, they form the decaying part of the recursion. To find the arbitrary constants, use the 
+      boundary conditions $p_0 = 0$ (your sum always starts at $0$) and $p_\infty = 1/[(1+2+3)/3]$. 
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      $p_n = \frac{1}{2} + \frac{1}{2} (-\frac{1}{\sqrt{3}})^n \cdot \text{cos} (n \cdot \text{tan}^{-1}\sqrt{2})$
+    </p>
+  </details>
+  
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Ball game $3$.</b> 
+    There are $5$ bins and you have an infinite supply of balls. You throw balls towards the bins, which land randomly in any of the 
+    bins. Each time a ball lands in an empty bin you recieve a dollar, otherwise you lose a dollar. You can choose to stop playing at
+    any time. What will your strategy be, and what is its expected value?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      There are two approaches. Either use a Markov chain, or sum the expected returns in going from 
+      $5$ to $4$, $4$ to $3$ and $3$ to $2$ balls.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      $25/12$
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Dice game $6$.</b> 
+    You play a game where you roll a dice. After each roll, you can either choose to walk off with the current value of the dice (in dollars), or to
+    reroll the dice. You can reroll up to three times. What is the fair value of this game, and what is your strategy? Now, suppose each 
+    reroll costs $70$ cents. How will you play the game?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      This can be solved easily using backward induction. 
+      The first part is classic problem from green book and the second part is a slightly modified version.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>
+      a. $14/3$, b. around $4.1$
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Expectation of median.</b> 
+    $5$ numbers are drawn at random from the distribution $f(x)$.
+    What is the expected value of the median number?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      This is order statistics.
+      Suppose we draw $N$ iid numbers $x_1, ..., x_N$ from the distribution $f(x)$. 
+      Now, we order them in ascending order. What is the expected value of the value in position $k$?
+    </p>
+    <p>
+      Think about the following quantity:
+      $$\text{pr}(\text{number in position } k \text{ is in interval } [x, x+\text{d}x])$$
+    </p>
+    <p>
+      Let's say we sample the $N$ numbers sequentially, so that each of the numbers are indexed by order. To get the above probability, we can assign any of the $N$ numbers to the position $k$ in the ordered vector. Then, we need to pick $k-1$ of the remaining numbers from $N-1$ remaining numbers to put before the position $k$, and then the remaining $N-k-1$ numbers go after the position $k$. Now, for any one of these assignments the corresponding probability is:
+      $$\text{pr}(\text{assignment}) = f(x)\text{d}x \cdot F(x)^{k-1} (1-F(x))^{N-k}$$
+    </p>
+    <p>
+      Since there are $N \cdot \binom{N-1}{k-1} = \frac{N!}{(k-1)! (N-k)!}$ such arrangements the probability is:
+      $$\frac{N!}{(k-1)! (N-k)!} \cdot f(x)\text{d}x \cdot F(x)^{k-1} (1-F(x))^{N-k}$$
+    </p>
+    <p>
+      Hence:
+      $$p_{x_k}(x) = \frac{N!}{(k-1)! (N-k-1)!} \cdot f(x) \cdot F(x)^{k-1} (1-F(x))^{N-k}$$
+    </p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Rock paper scissors.</b> 
+    You and your friend play rock paper scissors. You friend is esoteric and chooses to play only paper or scissors. What is your strategy? 
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Eliminate paper since it is dominated by another strategy. Then look for a mixed strategy on the reduced space.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>Play scissors $2/3$ of the time and paper $1/3$ of the time.</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Auction $1$.</b> 
+    You and your friend each sample a random number between $0$ and $1$. Call this number your value, $v$. Each of you proceed to put up a bid, $b$.
+    The person with the higher bid $b$ will get to pay $b$ dollars in exchange for $v$ dollars. How should you bid?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      Given some $v$, express the expected payoff $U(v, b)$ in terms of $v$ and $b$. This should not change to first order in $b$. Now, expressing
+      $b = \beta(v)$, find a differential equation for $\beta(v)$.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>Bid $b = v/2$.</p>
+  </details>
+
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
+
+  <p>
+    <b>Auction $2$.</b> 
+    You and your friend each sample a random number between $0$ and $1$. Call this number your value, $v$. Each of you proceed to put up a bid, $b$.
+    Now, both of you will pay your respective bids, and the higher bidder will recieve $v$ dollars. The lower bidder recieves nothing. 
+    How should you bid?
+  </p>
+  <details>
+    <summary>Hint</summary>
+    <p>
+      The same process as the previous question.
+    </p>
+  </details>
+  <details>
+    <summary>Solution</summary>
+    <p>Bid $b = v^2/2$.</p>
+  </details>
+
+  </main>
+
+</body>
+</html>
