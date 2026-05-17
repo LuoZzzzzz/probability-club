@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gold bar splitting game</title>
+
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- MathJax LaTeX Support -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        tags: 'all'  // Enable automatic equation numbering
+      }
+    };
+  </script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+</head>
+<body>
+  <header>
+    Gold bar splitting game
+  </header>
+
+  <main>
+    <nav class="page-nav">
+      <a href="index.html" class="btn">Index</a>
+    </nav>
+
+    <h1>Gold bar splitting game</h1>
+    <p>
+      <b>Question.</b> A gold bar has length $1$. Players $A, B, C$ sequentially place a point each on the bar at positions $x_A, x_B, x_C$. The bar is then split such that the parts that are closest to player's point becomes his. Under optimal play, where should $A$ place his point ($A$ is the first to pick his point).
+    </p>
+
+    <p>
+      <b>Solution.</b> Approach the problem backwards. Suppose $A$ and $B$ have placed their points already. $C$ sees points at positions $x_A$ and $x_B$. He has three choices:
+    </p>
+    <ol>
+      <li>Place just left of $x_A$, reward $=x_A$.</li>
+      <li>Place anywhere between $x_A$ and $x_B$, reward $=\tfrac{1}{2}(x_B - x_A)$.</li>
+      <li>Place just right of $x_B$, reward $= 1-x_B$.</li>
+    </ol>
+    <p>
+      There two few cases to consider from here on.
+    </p>
+    <p>
+      Suppose that it is favourable for $C$ to choose between $\tfrac{1}{2}(x_B - x_A)$ and $x_B$. In this case, how will $B$ react?
+    </p>
+    <ol>
+      <li>If player $C$ picks $\tfrac{1}{2}(x_B - x_A)$, $B$ will receive $x_B$ (or more, if $C$ chooses to place his point closer towards $A$ for some reason)</li>
+      <li>If player $C$ picks $x_B$, $B$ will receive $\tfrac{1}{2}(x_B - x_A)$</li>
+    </ol>
+    <p>
+      $B$ wants to maximise his payoff, which means <b>maximising</b> the minimum of $\tfrac{1}{2}(x_B - x_A)$ and $x_B$. Hence, $B$ will rationally choose to set $\tfrac{1}{2}(x_B - x_A) = x_B \implies x_B = \tfrac{2}{3} + \tfrac{1}{3}A$. Note that under this choice, $C$ does not care which option he picks, or where he places his point in the interval $[x_A, x_B]$ if he chooses that option since he always gets half of the interval. However, if $B$ had deviated from this choice slightly by reducing $x_B$, then $C$ will always place his point just to the right of $x_B$ and $B$ will be worse off. So the randomness in $C$'s choice on where to place in the interval $[x_A, x_B]$ is unavoidable, and there is nothing $B$ can do to play it to his advantage (ie. try to get $C$ to move closer to $x_A$), unless they collude. 
+    </p>
+    <p>
+      Under what circumstances will the above analysis play out?
+    </p>
+    <p>
+      Suppose $A$ had (foolishly) picked $x_A = 0.45$. Is the best move for $B$ to play as above? Let's consider $B$'s options:
+    </p>
+    <ol>
+      <li>Suppose $B$ can play as above, and place his point at $x_B = \tfrac{2}{3} + \tfrac{1}{3} \times 0.45 = \tfrac{49}{60}$. Then, $C$'s optimal move is to pick option one, placing $x_C$ just below $x_A$. The payoffs for $B$ and $C$ are then $\tfrac{11}{60} + \tfrac{1}{2} \times \tfrac{11}{30} = \tfrac{11}{30}$ and $0.45$ respectively.</li>
+      <li>Alternatively, $B$ can place his point just below $x_A$, in which case $C$'s optimal move is to place his point just above $x_A$. In this case the payoffs for $B$ and $C$ are $0.45$ and $0.55$ respectively and $A$ gets nothing.</li>
+      <li>$B$ can place his point $x_B > 0.45$ However, he must be careful to <b>not</b> incentivise $C$ to overcut him. To do so, he should choose $x_B = 0.55 + \epsilon$, in which case $C$ will undercut $A$. The payoffs for $B$ and $C$ are then $0.5$ and $0.45$ respectively.</li>
+    </ol>
+    <p>
+      The last option is the best outcome for $B$, which in this regime always pays $\tfrac{1}{2}$.
+    </p>
+    <p>
+      We want to find the threshold for this regime. This happens when the gap between $x_A$ and $x_B$ under the mirroring strategy becomes sufficiently wide that $C$ is incentivised to pick it over undercutting $A$. The size of this gap assuming the mirroring strategy is $1-2x_A$, and $C$'s payoff from placing $x_c$ in this gap is $\tfrac{1}{2}(1-2x_A)$, so the threshold is located at $x_A = \tfrac{1}{2}(1-2x_A) \implies x_A = \tfrac{1}{4}$.
+    </p>
+    <p>
+      What happens below $x_A = \tfrac{1}{4}$? At the threshold, the reward $C$ gets from undercutting $A$ is $\tfrac{1}{4}$, while the reward he gets from placing $x_C \in [0.25, 0.75]$ or overcutting $B$ is also $\tfrac{1}{4}$. As $x_A$ falls below $\tfrac{1}{4}$, it is no longer optimal for $C$ to undercut $A$. This is because the length of the segment $[x_A, 1]$ is sufficiently long such that regardless of where $B$ places his point, $C$ can place his point somewhere in this interval that guarantees a reward greater than $\tfrac{1}{4}$. So this reverts to our original minimax analysis, in which $B$'s payoff is $\tfrac{1}{3} - \tfrac{1}{3}x_A$ (worst case) and $C$'s payoff is also $\tfrac{1}{3} - \tfrac{1}{3}x_A$ (the equality should be immediately obvious, since we argued that $B$ would want to equalise the payoffs under such situations). 
+    </p>
+    <p>
+      We are ultimately interested in $A$'s optimal moves, so we should compute $A$'s payoff for various choices of $x_A$.
+    </p>
+    <ol>
+      <li>If $x_A \gt \tfrac{1}{4}$, then $B$ plays the "mirror" strategy and $C$ undercuts $A$, which means $A$ gets $\tfrac{1}{2} - x_A$.</li>
+      <li>If $x_A \lt \tfrac{1}{4}$, then $B$ plays the "minimax" strategy on the interval $[x_A, 1]$, placing his point at $x_B = \tfrac{2}{3} + \tfrac{1}{3}x_A$. As discussed above, $C$ doesn't really care if he places his point just above $x_B$ or anywhere in the interval $[x_A, x_B]$. So the worst case payoff for $A$ (if $C$ chooses $x_C = x_A$) is $x_A$, while the best case scenario (if $C$ chooses $x_C = x_B$) is $\tfrac{1}{3} + \tfrac{2}{3}x_A$.</li>
+    </ol>
+    <p>
+      So if we look at the worst case payoff for $A$, it is:
+      $$
+      \text{A's payoff}(x_A) =
+      \begin{cases}
+      x_A  \phantom{xxxxxx} &x_A \lt \tfrac{1}{4} \\
+      \tfrac{1}{2} - x_A  &\tfrac{1}{4} \lt x_A \lt \tfrac{1}{2}
+      \end{cases}
+      $$
+    </p>
+  </main>
+
+</body>
+</html>
