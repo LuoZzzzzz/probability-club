@@ -97,6 +97,36 @@
       \end{cases}
       $$
     </p>
+
+    <p>
+      <b>Four player game and backward induction.</b> Suppose now that we wanted to work out $A$'s optimal strategy for four players, $A, B, C, D$. An analytical approach seems difficult (at least I can't think of a simple way to do it without considering many strategy regimes), but we can solve it via brute force using backward induction. 
+    </p>
+    <p>
+      Start with $D$. When it is $D$'s turn, he sees points $x_A, x_B, x_C$ already placed. Therefore, $D$ simply has to pick the interval among the four existing interval that maximises his payoff. Knowing this, we can compute a dictionary which keys are all possible $x_A, x_B, x_C$ positions, and which corresponding values are $D$'s coordinate under optimal play, $\tilde{x}_D$.  $\tilde{}$  indicates the coordinate is optimal.
+    </p>
+    <p>
+      <i>Current dictionary:</i> $\{x_A, x_B, x_C: \tilde{x}_D\}$
+    </p>
+    <p>
+      Now, we go to $C$'s perspective. $C$ will see $x_A$ and $x_B$ already placed. So he goes to the dictionary and looks up all the possible $x_C$s for the given $x_A$ and $x_B$. $C$ then calculates his optimal position $\tilde{x}_C$. This process can be done for any choice of $x_A, x_B$ and doing this to all points reduces our dictionary keys to just $x_A, x_B$ with values $\tilde{x}_C, \tilde{x}_D$. 
+    </p>
+    <p>
+      <i></i>Current dictionary:</i> $\{x_A, x_B : \tilde{x}_C, \tilde{x}_D\}$
+    </p>
+    <p>
+      Now, repeat the above reasoning with $B$. He sees that $A$ has already picked position $x_A$, so he looks up all the $x_B$s for that $x_A$, and picks the one that maximises his payoff. 
+    </p>
+    <p>
+      <i>Current dictionary:</i> $\{x_A : \tilde{x}_B, \tilde{x}_C, \tilde{x}_D\}$
+    </p>
+    <p>
+      Finally, player $A$ just up the dictionary and picks the position that maximises his payoff.
+    </p>
+    <p>
+      This seems pretty straightforward, but it is actually <b>very tricky</b> to implement correctly.
+    </p>
+
+
   </main>
 
 </body>
