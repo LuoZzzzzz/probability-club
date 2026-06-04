@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="styles.css" />
 
   <!-- MathJax LaTeX Support -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script>
     window.MathJax = {
       tex: {
@@ -111,7 +110,7 @@
       Now, we go to $C$'s perspective. $C$ will see $x_A$ and $x_B$ already placed. So he goes to the dictionary and looks up all the possible $x_C$s for the given $x_A$ and $x_B$. $C$ then calculates his optimal position $\tilde{x}_C$. This process can be done for any choice of $x_A, x_B$ and doing this to all points reduces our dictionary keys to just $x_A, x_B$ with values $\tilde{x}_C, \tilde{x}_D$. 
     </p>
     <p>
-      <i></i>Current dictionary:</i> $\{x_A, x_B : \tilde{x}_C, \tilde{x}_D\}$
+      <i>Current dictionary:</i> $\{x_A, x_B : \tilde{x}_C, \tilde{x}_D\}$
     </p>
     <p>
       Now, repeat the above reasoning with $B$. He sees that $A$ has already picked position $x_A$, so he looks up all the $x_B$s for that $x_A$, and picks the one that maximises his payoff. 
