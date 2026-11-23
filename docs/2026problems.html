@@ -39,9 +39,9 @@
       </p>
       <details>
         <summary>Solution</summary>
-        <p>
-          <i>Wrong solution</i><br />
-          Imagine that such an interval exists, and you are standing on it. Then
+        <h4 class="sub it">Wrong solution</h4>
+    <p>
+      Imagine that such an interval exists, and you are standing on it. Then
           all the left endpoints must lie to your left and all the right
           endpoints must lie to your right. Let us denote the left endpoints as
           points $1$ to $5$ and the right endpoints as points $6$ to $10$. In
@@ -51,7 +51,7 @@
           left and $6$ to $10$ to your right is $5!5!$. Since there are $10!$
           ways to arrange the $10$ points, the probability is $\frac{5!5!}{10!}
           = \frac{1}{252}$.
-        </p>
+    </p>
         <p>
           Unfortunately, this is wrong. Do you see why? The reason is that the
           $10!$ arrangements contain some arrangements that are illegal! We have
@@ -59,9 +59,9 @@
           $10$ to be right endpoints, but in some arrangements we might have say
           point $1$ on the right of point $6$.
         </p>
-        <p>
-          <i>Resolution</i><br />
-          To point ourselves in the right direction, let's consider the
+        <h4 class="sub it">Resolution</h4>
+    <p>
+      To point ourselves in the right direction, let's consider the
           following problem. Given $N$ pairs of objects $(A_1, B_1), \dots,
           (A_N, B_N)$, how many ways are there to arrange the $2N$ objects such
           that for each $i$, $A_i$ is to the left of $B_i$? We can approach this
@@ -75,7 +75,7 @@
           N! \cdot \prod_{k=1}^N (2k-1)$. This gives $f(5) = 113400$. So the
           total number of valid arrangements is $113400$, not $10! = 3628800$.
           Therefore, the probability is $\frac{5!5!}{113400} = \boxed{\frac{8}{63}}$.
-        </p>
+    </p>
       </details>
       <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0" />
 <nav class="pager" aria-label="Previous and next pages"><span class="prev"></span><a class="idx" href="index.html"><span class="pl">Index</span>Probability Club</a><a class="next" href="2025problems.html" rel="next"><span class="pl">Next →</span>list of problems</a></nav>
