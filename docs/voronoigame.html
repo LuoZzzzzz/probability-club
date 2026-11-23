@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Gold bar splitting game</title>
-
-  <!-- Link external CSS -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- MathJax LaTeX Support -->
-  <script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gold bar splitting game</title>
+<link rel="stylesheet" href="styles.css">
+<script>
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -17,23 +14,17 @@
       }
     };
   </script>
-  <script
-    id="MathJax-script"
-    async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-  ></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="site.js" defer></script>
 </head>
 <body>
-  <header>
-    Gold bar splitting game
-  </header>
-
-  <main>
-    <nav class="page-nav">
-      <a href="index.html" class="btn">Index</a>
-    </nav>
-
-    <h1>Gold bar splitting game</h1>
+<main class="page" id="top">
+<nav class="site-nav" aria-label="Site"><a href="index.html">Probability Club</a><span class="pn"><a href="poissonisation.html" rel="prev" title="Poissonisation">← Previous</a><span class="off">Next →</span></span></nav>
+<article>
+<header class="chap-head">
+<p class="kicker">Interesting Questions and Tricks</p>
+<h1>Gold bar splitting game</h1>
+</header>
     <p>
       <b>Question.</b> A gold bar has length $1$. Players $A, B, C$ sequentially place a point each on the bar at positions $x_A, x_B, x_C$. The bar is then split such that the parts that are closest to player's point becomes his. Under optimal play, where should $A$ place his point ($A$ is the first to pick his point).
     </p>
@@ -124,9 +115,8 @@
     <p>
       This seems pretty straightforward, but it is actually <b>very tricky</b> to implement correctly.
     </p>
-
-
-  </main>
-
+<nav class="pager" aria-label="Previous and next pages"><a class="prev" href="poissonisation.html" rel="prev"><span class="pl">← Previous</span>Poissonisation</a><a class="idx" href="index.html"><span class="pl">Index</span>Probability Club</a><span class="next"></span></nav>
+</article>
+</main>
 </body>
 </html>

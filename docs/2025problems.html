@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>2025 Problems</title>
-
-  <!-- Link external CSS -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- MathJax LaTeX Support -->
-  <script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2025 Problems</title>
+<link rel="stylesheet" href="styles.css">
+<script>
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -17,23 +14,17 @@
       }
     };
   </script>
-  <script
-    id="MathJax-script"
-    async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-  ></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="site.js" defer></script>
 </head>
 <body>
-  <header>
-    2025 Problems
-  </header>
-
-  <main>
-    <nav class="page-nav">
-      <a href="index.html" class="btn">Index</a>
-    </nav>
-
-  <h2>Problems from 2025</h2>
+<main class="page" id="top">
+<nav class="site-nav" aria-label="Site"><a href="index.html">Probability Club</a><span class="pn"><a href="2026problems.html" rel="prev" title="Problems">← Previous</a><span class="off">Next →</span></span></nav>
+<article>
+<header class="chap-head">
+<p class="kicker">2025 Problems</p>
+<h1>Problems from 2025</h1>
+</header>
   <p>
     <b>Coin tossing 1.</b>
     What is the expected number of coin tosses before you land a. $HHH$, b. $HHT$, c. $HTH$, d. $THH$?
@@ -564,8 +555,8 @@
     <summary>Solution</summary>
     <p>Bid $b = v^2/2$.</p>
   </details>
-
-  </main>
-
+<nav class="pager" aria-label="Previous and next pages"><a class="prev" href="2026problems.html" rel="prev"><span class="pl">← Previous</span>Problems</a><a class="idx" href="index.html"><span class="pl">Index</span>Probability Club</a><span class="next"></span></nav>
+</article>
+</main>
 </body>
 </html>

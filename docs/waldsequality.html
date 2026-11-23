@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Wald's Equality</title>
-
-  <!-- Link external CSS -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- MathJax LaTeX Support -->
-  <script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wald's Equality</title>
+<link rel="stylesheet" href="styles.css">
+<script>
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -17,23 +14,17 @@
       }
     };
   </script>
-  <script
-    id="MathJax-script"
-    async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-  ></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="site.js" defer></script>
 </head>
 <body>
-  <header>
-    Wald's Equality
-  </header>
-
-  <main>
-    <nav class="page-nav">
-      <a href="index.html" class="btn">Index</a>
-    </nav>
-
-    <h1>Walds equality</h1>
+<main class="page" id="top">
+<nav class="site-nav" aria-label="Site"><a href="index.html">Probability Club</a><span class="pn"><span class="off">← Previous</span><a href="poissonisation.html" rel="next" title="Poissonisation">Next →</a></span></nav>
+<article>
+<header class="chap-head">
+<p class="kicker">Interesting Questions and Tricks</p>
+<h1>Walds equality</h1>
+</header>
     <p>
       Consider a process that generates a sequence of independently and identically distributed (iid) outcomes, $X_1, X_2, ...$. This process stops whenever some condition is satisfied. The time step at which the process stops, $N$, is therefore also a random variable.
     </p>
@@ -60,8 +51,8 @@
     <p>
       We can verify that Wald's equation holds for the latter and not the former by computing the expectations for the two cases using recursion, and then comparing the answer to that given by Wald's equation.
     </p>
-
-  </main>
-
+<nav class="pager" aria-label="Previous and next pages"><span class="prev"></span><a class="idx" href="index.html"><span class="pl">Index</span>Probability Club</a><a class="next" href="poissonisation.html" rel="next"><span class="pl">Next →</span>Poissonisation</a></nav>
+</article>
+</main>
 </body>
 </html>
